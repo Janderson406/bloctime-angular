@@ -3,5 +3,5 @@
 
   angular
     .module('bloctime')
-    .controller('HomeCtrl', [HomeCtrl]);
+    .controller('HomeCtrl', HomeCtrl);
 })();
