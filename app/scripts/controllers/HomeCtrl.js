@@ -1,7 +1,7 @@
-// (function() {
-//   function HomeCtrl() {}
-//
-//   angular
-//     .module('bloctime')
-//     .controller('HomeCtrl', HomeCtrl);
-// })();
+(function() {
+  function HomeCtrl() {}
+
+  angular
+    .module('bloctime')
+    .controller('HomeCtrl', HomeCtrl);
+})();

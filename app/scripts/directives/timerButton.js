@@ -7,45 +7,39 @@
       restrict: 'E',
       scope: {},
       link: function(scope, element, attributes) {
-        // scope.startTime = '25:00';
-        scope.currentTime = '0:00'; // placeholder
-        scope.workStatus = true; // track if work timer
-        scope.breakStatus = false; // track if break timer
         scope.buttonStatus = 'START';
-        scope.running = false;
+        scope.currentTime = '0:00'; // placeholder
+        var workStatus = true; // track if work timer
+        var breakStatus = false; // track if break timer
+        var countdown = undefined;
 
         var startTimer = function() {
-          scope.running = true;
+          scope.buttonStatus = 'RESET';
           scope.currentTime = 1500; //will set up filter to convert seconds
 
-          scope.countdown = $interval(function() {
+          countdown = $interval(function() {
             scope.currentTime--;
-            console.log("second");
-
+            //console.log("second");
           }, 1000);
+
         };
 
         var stopTimer = function() {
-          scope.running = false;
           scope.currentTime = 1500;
+          $interval.cancel(countdown);
+          countdown = undefined;
+          scope.buttonStatus = 'START';
         };
 
         scope.start = function() {
-          scope.buttonStatus = 'RESET';
-          if (scope.running = false) {
-
-            startTimer();
-
-
-          } else if (scope.running = true) {
-            //scope.buttonStatus = 'START';
+          if (countdown) {
             stopTimer();
-          };
-
-        }
-
-
+          } else {
+            startTimer();
+          }
+        };
       }
+
     };
   };
   angular
