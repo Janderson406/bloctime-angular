@@ -7,28 +7,54 @@
       restrict: 'E',
       scope: {},
       link: function(scope, element, attributes) {
+        var BREAK_TIME = 300; //will set up filter to convert seconds
+        var WORK_TIME = 1500;
+
+        // INITIAL SETUP
         scope.buttonStatus = 'START';
-        scope.currentTime = '0:00'; // placeholder
-        var workStatus = true; // track if work timer
-        var breakStatus = false; // track if break timer
+        scope.currentTime = WORK_TIME;
+        scope.onBreak = false;
         var countdown = undefined;
 
         var startTimer = function() {
           scope.buttonStatus = 'RESET';
-          scope.currentTime = 1500; //will set up filter to convert seconds
 
           countdown = $interval(function() {
-            scope.currentTime--;
-            //console.log("second");
-          }, 1000);
 
+            if (scope.currentTime >= 1) {
+              scope.currentTime--;
+            } else {
+              // When time natually counts down:
+              if (scope.onBreak == false) {
+                scope.currentTime = BREAK_TIME;
+                scope.buttonStatus = 'BREAK';
+                scope.onBreak = true;
+              } else if (scope.onBreak == true) {
+                scope.currentTime = WORK_TIME;
+                scope.buttonStatus = 'WORK';
+                scope.onBreak = false;
+              }
+
+              stopTimer();
+              // alert("countdown end");
+            }
+          }, 1000); // run once a second
         };
 
         var stopTimer = function() {
-          scope.currentTime = 1500;
-          $interval.cancel(countdown);
-          countdown = undefined;
-          scope.buttonStatus = 'START';
+          if (scope.onBreak == false) { //WORK RESET
+            scope.currentTime = WORK_TIME;
+            $interval.cancel(countdown);
+            countdown = undefined;
+            scope.buttonStatus = 'START';
+            // alert("first stopTimer");
+          } else if (scope.onBreak == true) { //BREAK RESET
+            scope.currentTime = BREAK_TIME;
+            $interval.cancel(countdown);
+            countdown = undefined;
+            scope.buttonStatus = 'BREAK';
+            // alert("second stopTimer");
+          }
         };
 
         scope.start = function() {
