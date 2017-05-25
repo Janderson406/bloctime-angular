@@ -7,9 +7,9 @@
       restrict: 'E',
       scope: {},
       link: function(scope, element, attributes) { //will set up filter to convert seconds
-        var BREAK_TIME = 3;         //300
+        var WORK_TIME = 1500;       //1500 seconds
+        var BREAK_TIME = 300;       //300
         var LONG_BREAK_TIME = 1800; //1800
-        var WORK_TIME = 5;         //1500
 
         // INITIAL SETUP
         scope.buttonStatus = 'START';
@@ -17,6 +17,17 @@
         scope.onBreak = false;
         var countdown = undefined;
         scope.numWorkSessions = 0;
+
+        //WATCH FOR TIME TO RUN OUT AND PLAY SOUND
+        var ding = new buzz.sound("assets/sounds/ding.mp3", {
+          preload: true
+        });
+
+        scope.$watch('currentTime', function() {
+          if (scope.currentTime === 0) {
+            ding.play();
+          };
+        });
 
         var startTimer = function() {
           scope.buttonStatus = 'RESET';
@@ -36,8 +47,8 @@
                 scope.buttonStatus = 'WORK';
                 scope.onBreak = false;
               }
+
               stopTimer();
-              // alert("countdown end");
             }
           }, 1000); // run once a second
         };
@@ -48,17 +59,16 @@
             $interval.cancel(countdown);
             countdown = undefined;
             scope.buttonStatus = 'START';
-            // alert("first stopTimer");
           } else if (scope.onBreak == true) { //BREAK RESET
             if (scope.numWorkSessions % 4 === 0) {
               scope.currentTime = LONG_BREAK_TIME;
             } else {
               scope.currentTime = BREAK_TIME;
             };
+
             $interval.cancel(countdown);
             countdown = undefined;
             scope.buttonStatus = 'BREAK';
-            // alert("second stopTimer");
           }
         };
 
