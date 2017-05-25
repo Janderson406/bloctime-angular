@@ -8,7 +8,7 @@
       scope: {},
       link: function(scope, element, attributes) { //will set up filter to convert seconds
         var BREAK_TIME = 3;         //300
-        var LONG_BREAK_TIME = 8; //1800
+        var LONG_BREAK_TIME = 1800; //1800
         var WORK_TIME = 5;         //1500
 
         // INITIAL SETUP
