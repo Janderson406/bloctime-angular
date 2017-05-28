@@ -1,0 +1,13 @@
+<div class = "task-container column half"  >
+  <div class="task task-input">
+      <input type="text" placeholder="Add a new task" class="focus" ng-model="newTask">
+      <input type="submit" class = "task-button" ng-click="addTask()" value="SAVE">
+
+      <div ng-repeat="task in allTasks">
+        <h4>
+          <button class = "ion-checkmark-circled" ng-click="clearTask(task)"></button>
+          {{ task.$value }}
+        </h4>
+      </div>
+  </div>
+</div>

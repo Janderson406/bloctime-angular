@@ -1,5 +1,6 @@
 .timer-display {
   text-align: center;
+  display: inline-block;
  }
 
 .clock {
@@ -51,4 +52,55 @@
  -webkit-transition: background-color 200ms linear;
  -ms-transition: background-color 200ms linear;
  transition: background-color 200ms linear;
+}
+
+.task-container{
+  display: inline-block;
+  /*height: 100%; /* 100% Full-height */*/
+  /*width: 30%; /* 0 width - change this with JavaScript */*/
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  /*background-color: #5695d0;*/
+  word-wrap: break-word;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding: 20px; 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.task-button {
+  background-color: #3d597e;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.task-button:hover {
+  cursor: pointer; cursor: hand;
+  background-color: #3a69a8;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.ion-checkmark-circled {
+  color: rgb(9, 110, 10);
+  font-size: 1rem;
+  background-color: white;
+  border: 0px;
+}
+
+.ion-checkmark-circled:hover {
+ color: rgb(164, 57, 121);
+ font-size: 1rem;
+ background-color: white;
+ border: 0px;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color s00ms linear;
 }

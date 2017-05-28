@@ -1,19 +1,17 @@
-<div class="container">
-  <div class="timer-display">
-    <div ng-show="!onBreak">
-			<h1>Bloc Work Timer</h1>
-          <div class="clock" ng-bind="currentTime | timecode"></div>
-          <a class="timer-button-work" ng-bind="buttonStatus" ng-click="start()"> </a>
-		</div>
+<div class="timer-display column half">
+  <div ng-show="!onBreak">
+		<h1>Bloc Work Timer</h1>
+        <div class="clock" ng-bind="currentTime | timecode"></div>
+        <a class="timer-button-work" ng-bind="buttonStatus" ng-click="start()"> </a>
+	</div>
 
-    <div ng-show="onBreak">
-			<h1>Bloc Break Time!</h1>
-      <div class="clock" ng-bind="currentTime | timecode"></div>
-      <a class="timer-button-break" ng-bind="buttonStatus" ng-click="start()"> </a>
-		</div>
+  <div ng-show="onBreak">
+		<h1>Bloc Break Time!</h1>
+    <div class="clock" ng-bind="currentTime | timecode"></div>
+    <a class="timer-button-break" ng-bind="buttonStatus" ng-click="start()"> </a>
+	</div>
 
-    <h3>Work Sessions Completed:
-      <a ng-bind="numWorkSessions"></a>
-    </h3>
-  </div>
+  <h3>Work Sessions Completed:
+    <a ng-bind="numWorkSessions"></a>
+  </h3>
 </div>

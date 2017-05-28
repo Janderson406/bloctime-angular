@@ -9,9 +9,19 @@
     $stateProvider
       .state('home', {
         url: '/',
-        controller: 'HomeCtrl as home', // <-- erroring in console ?
-        templateUrl: '/templates/home.html'
+        views: {
+          'home':{
+            controller: 'HomeCtrl as home',
+            templateUrl: '/templates/home.html'
+          },
+          
+          'task':{
+            controller: 'TaskCtrl as task',
+            templateUrl: '/templates/task.html'
+          }
+        },
       });
+
   }
 
   angular
