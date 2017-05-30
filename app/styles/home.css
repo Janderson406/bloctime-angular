@@ -109,6 +109,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
   font-size: 1.5rem;
   background-color: white;
   border: 0px;
+  cursor: pointer; cursor: hand;
 }
 
 .ion-plus-circled:hover {
@@ -119,6 +120,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
   -webkit-transition: background-color 300ms linear;
   -ms-transition: background-color 300ms linear;
   transition: background-color s00ms linear;
+  cursor: pointer; cursor: hand;
 }
 
 .ion-checkmark-circled {
@@ -126,6 +128,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
   font-size: 1rem;
   background-color: white;
   border: 0px;
+  cursor: pointer; cursor: hand;
 }
 
 .ion-checkmark-circled:hover {
@@ -136,4 +139,5 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
   -webkit-transition: background-color 300ms linear;
   -ms-transition: background-color 300ms linear;
   transition: background-color s00ms linear;
+  cursor: pointer; cursor: hand;
 }
