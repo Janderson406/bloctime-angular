@@ -1,12 +1,19 @@
 .timer-display {
   text-align: center;
   display: inline-block;
+  padding: 20px;
  }
 
 .clock {
   font-size: 2.5rem;
   margin-bottom: 30px;
  }
+
+.inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
 
 .timer-button-work {
   display: inline-block;
@@ -54,6 +61,26 @@
  transition: background-color 200ms linear;
 }
 
+input[type=text] {
+  width: 80%;
+  font-size: 1.3em;
+  font-family: 'Oswald', sans-serif;
+  color: #888383;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1.2px solid #a2a1a1;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
 .task-container{
   display: inline-block;
   /*height: 100%; /* 100% Full-height */*/
@@ -65,27 +92,33 @@
   /*background-color: #5695d0;*/
   word-wrap: break-word;
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding: 20px; 
+  padding: 20px;
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-.task-button {
-  background-color: #3d597e;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
+.button-center {
   display: inline-block;
-  font-size: 14px;
+  /* aligned to each other and not the .wrapper */
+  height: 100%;
+  /* already was inline by dephault - but just to be clear */
+  vertical-align: middle;
 }
 
-.task-button:hover {
-  cursor: pointer; cursor: hand;
-  background-color: #3a69a8;
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
-  transition: background-color 200ms linear;
+.ion-plus-circled {
+  color: #3d597e;
+  font-size: 1.5rem;
+  background-color: white;
+  border: 0px;
+}
+
+.ion-plus-circled:hover {
+ color: #3a69a8;
+ font-size: 1.5rem;
+ background-color: white;
+ border: 0px;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color s00ms linear;
 }
 
 .ion-checkmark-circled {

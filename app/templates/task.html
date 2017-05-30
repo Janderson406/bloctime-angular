@@ -1,13 +1,18 @@
-<div class = "task-container column half"  >
-  <div class="task task-input">
-      <input type="text" placeholder="Add a new task" class="focus" ng-model="newTask">
-      <input type="submit" class = "task-button" ng-click="addTask()" value="SAVE">
+<div class = "task-container column half">
+  <div class = "inner">
+    <div class="task task-input">
+      <div class = "button-center">
+        <input type="text" placeholder="Add a new task" ng-model="newTask">
+        <!-- <input type="submit" class = "task-button" ng-click="addTask()" value="SAVE"> -->
+        <button class = "ion-plus-circled" ng-click="addTask()"></button>
+      </div>  
 
-      <div ng-repeat="task in allTasks">
-        <h4>
-          <button class = "ion-checkmark-circled" ng-click="clearTask(task)"></button>
-          {{ task.$value }}
-        </h4>
-      </div>
+        <div ng-repeat="task in allTasks | orderBy: 'id' : true">
+          <h4>
+            <button class = "ion-checkmark-circled" ng-click="clearTask(task)"></button>
+            {{ task.$value }}
+          </h4>
+        </div>
+    </div>
   </div>
 </div>
