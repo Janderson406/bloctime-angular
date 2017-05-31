@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+h1 {
+  margin-top: 0px;
+}
+
 
 .timer-button-work {
   display: inline-block;
@@ -59,6 +63,44 @@
  -webkit-transition: background-color 200ms linear;
  -ms-transition: background-color 200ms linear;
  transition: background-color 200ms linear;
+}
+
+.pause-container {
+  margin-top: 10px;
+}
+
+.ion-ios-play {
+  color: #68903d;
+  font-size: 1.5rem;
+  border: 0px;
+  cursor: pointer; cursor: hand;
+}
+
+.ion-ios-play:hover {
+ color: rgb(164, 57, 121);
+ font-size: 1.5rem;
+ border: 0px;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color s00ms linear;
+  cursor: pointer; cursor: hand;
+}
+
+.ion-ios-pause {
+  color: #68903d;
+  font-size: 1.5rem;
+  border: 0px;
+  cursor: pointer; cursor: hand;
+}
+
+.ion-ios-pause:hover {
+ color: rgb(164, 57, 121);
+  font-size: 1.5rem;
+  border: 0px;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color s00ms linear;
+  cursor: pointer; cursor: hand;
 }
 
 input[type=text] {

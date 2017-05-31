@@ -12,8 +12,17 @@
       <a class="timer-button-break" ng-bind="buttonStatus" ng-click="start()"> </a>
   	</div>
 
+    <div class="pause-container">
+      <div ng-show="!running">
+        <a class="ion-ios-play" ng-bind="pauseStatus" ng-click="pause()"> </a>
+      </div>
+      <div ng-show="running">
+        <a class="ion-ios-pause" ng-bind="pauseStatus" ng-click="pause()"> </a>
+      </div>
+    </div>
+
     <h3>Work Sessions Completed:
       <a ng-bind="numWorkSessions"></a>
     </h3>
-  </div>  
+  </div>
 </div>

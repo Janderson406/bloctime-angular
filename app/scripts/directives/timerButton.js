@@ -18,6 +18,8 @@
         var countdown = undefined;
         scope.numWorkSessions = 0;
 
+        scope.running = false;
+
         //WATCH FOR TIME TO RUN OUT AND PLAY SOUND
         var ding = new buzz.sound("assets/sounds/ding.mp3", {
           preload: true
@@ -31,7 +33,7 @@
 
         var startTimer = function() {
           scope.buttonStatus = 'RESET';
-
+          scope.running = true;
           countdown = $interval(function() {
             if (scope.currentTime >= 1) {
               scope.currentTime--;
@@ -54,6 +56,7 @@
         };
 
         var stopTimer = function() {
+          scope.running = false;
           if (scope.onBreak == false) { //WORK RESET
             scope.currentTime = WORK_TIME;
             $interval.cancel(countdown);
@@ -79,6 +82,15 @@
             startTimer();
           }
         };
+
+        scope.pause = function() {
+          if (scope.running == true) {
+            $interval.cancel(countdown);
+            scope.running = false
+          } else if (scope.running == false){
+            startTimer();
+          }
+        }
       }
 
     };
